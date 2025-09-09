@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Сайт с фиксированным поп-апом</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            min-height: 200vh; /* Делаем страницу больше экрана */
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        
+        .content {
+            width: 100%;
+            /* Фиксированная ширина контента, не зависит от поп-апа */
+        }
+        
+        h1 {
+            margin-bottom: 20px;
+            color: #2c3e50;
+        }
+        
+        p {
+            margin-bottom: 15px;
+            text-align: justify;
+        }
+        
+        /* Стили для поп-апа */
+        .popup {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            width: 300px;
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 5px 25px rgba(0, 0, 0, 0.2);
+            padding: 20px;
+            z-index: 1000;
+            transition: all 0.4s ease;
+        }
+        
+        .popup.hidden {
+            right: -350px;
+        }
+        
+        .popup-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 15px;
+            padding-bottom: 10px;
+            border-bottom: 1px solid #eee;
+        }
+        
+        .popup-title {
+            font-size: 1.2rem;
+            font-weight: bold;
+            color: #2c3e50;
+        }
+        
+        .close-btn {
+            background: none;
+            border: none;
+            font-size: 1.5rem;
+            cursor: pointer;
+            color: #7f8c8d;
+            transition: color 0.3s;
+        }
+        
+        .close-btn:hover {
+            color: #e74c3c;
+        }
+        
+        .popup-content {
+            margin-bottom: 15px;
+        }
+        
+        .popup-form input {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 10px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+        }
+        
+        .popup-form button {
+            width: 100%;
+            padding: 10px;
+            background: #3498db;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+        
+        .popup-form button:hover {
+            background: #2980b9;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="content">
+            <h1>Длинная страница с контентом</h1>
+            
+            <p>Добро пожаловать на наш сайт! Здесь вы найдете много интересной и полезной информации. Прокручивайте страницу вниз, чтобы увидеть больше контента.</p>
+            
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam in dui mauris. Vivamus hendrerit arcu sed erat molestie vehicula. Sed auctor neque eu tellus rhoncus ut eleifend nibh porttitor. Ut sit amet enim sit amet nisl bibendum ornare.</p>
+            
+            <p>Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Mauris sit amet mi vitae sem lacinia interdum. Curabitur ullamcorper lacus at libero aliquet, sed aliquam eros tincidunt.</p>
+            
+            <p>Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Donec quis felis euismod, aliquet nisi a, tempor nisl. Integer ut justo id lectus convallis convallis.</p>
+            
+            <p>Phasellus vitae quam quis nisi aliquet tincidunt. Vivamus sit amet volutpat eros. Proin efficitur justo eget nulla consequat, at aliquet odio vehicula.</p>
+            
+            <p>Fusce auctor, nunc id tincidunt viverra, ligula nunc consectetur nunc, id consectetur nunc nunc id nunc. Sed vitae nunc id nunc aliquet aliquet. Sed auctor, nunc id tincidunt viverra, ligula nunc consectetur nunc, id consectetur nunc nunc id nunc.</p>
+            
+            <p>Curabitur ullamcorper lacus at libero aliquet, sed aliquam eros tincidunt. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Donec quis felis euismod, aliquet nisi a, tempor nisl.</p>
+            
+            <p>Integer ut justo id lectus convallis convallis. Phasellus vitae quam quis nisi aliquet tincidunt. Vivamus sit amet volutpat eros. Proin efficitur justo eget nulla consequat, at aliquet odio vehicula.</p>
+            
+            <p>Fusce auctor, nunc id tincidunt viverra, ligula nunc consectetur nunc, id consectetur nunc nunc id nunc. Sed vitae nunc id nunc aliquet aliquet. Sed auctor, nunc id tincidunt viverra, ligula nunc consectetur nunc, id consectetur nunc nunc id nunc.</p>
+            
+            <p>Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Mauris sit amet mi vitae sem lacinia interdum. Curabitur ullamcorper lacus at libero aliquet, sed aliquam eros tincidunt.</p>
+            
+            <p>Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Donec quis felis euismod, aliquet nisi a, tempor nisl. Integer ut justo id lectus convallis convallis.</p>
+            
+            <p>Phasellus vitae quam quis nisi aliquet tincidunt. Vivamus sit amet volutpat eros. Proin efficitur justo eget nulla consequat, at aliquet odio vehicula.</p>
+            
+            <p>Fusce auctor, nunc id tincidunt viverra, ligula nunc consectetur nunc, id consectetur nunc nunc id nunc. Sed vitae nunc id nunc aliquet aliquet. Sed auctor, nunc id tincidunt viverra, ligula nunc consectetur nunc, id consectetur nunc nunc id nunc.</p>
+            
+            <p>Curabitur ullamcorper lacus at libero aliquet, sed aliquam eros tincidunt. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Donec quis felis euismod, aliquet nisi a, tempor nisl.</p>
+            
+            <p>Integer ut justo id lectus convallis convallis. Phasellus vitae quam quis nisi aliquet tincidunt. Vivamus sit amet volutpat eros. Proin efficitur justo eget nulla consequat, at aliquet odio vehicula.</p>
+            
+            <p>Это последний абзац контента. Если вы дочитали до этого места, значит вы прокрутили страницу до конца. Надеемся, вам понравился наш контент!</p>
+        </div>
+    </div>
+
+    <!-- Фиксированный поп-ап -->
+    <div class="popup">
+        <div class="popup-header">
+            <div class="popup-title">Специальное предложение!</div>
+            <button class="close-btn">&times;</button>
+        </div>
+        <div class="popup-content">
+            <p>Подпишитесь на нашу рассылку, чтобы получать эксклюзивные предложения и новости.</p>
+        </div>
+        <form class="popup-form">
+            <input type="email" placeholder="Ваш email" required>
+            <button type="submit">Подписаться</button>
+        </form>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const popup = document.querySelector('.popup');
+            const closeBtn = document.querySelector('.close-btn');
+            let popupWasClosed = false;
+            let alreadyShownAtBottom = false;
+            let cooldown = false;
+            
+            // Функция для скрытия поп-апа
+            function hidePopup() {
+                popup.classList.add('hidden');
+                popupWasClosed = true;
+                
+                // Устанавливаем кулдаун на 2 секунды после закрытия
+                cooldown = true;
+                setTimeout(() => {
+                    cooldown = false;
+                }, 2000);
+            }
+            
+            // Функция для показа поп-апа
+            function showPopup() {
+                popup.classList.remove('hidden');
+                alreadyShownAtBottom = true;
+                popupWasClosed = false;
+            }
+            
+            // Обработчик клика по кнопке закрытия
+            closeBtn.addEventListener('click', hidePopup);
+            
+            // Проверяем, достигнута ли нижняя часть страницы
+            function checkScroll() {
+                // Если кулдаун активен (только что закрыли поп-ап) - ничего не делаем
+                if (cooldown) return;
+                
+                // Высота окна браузера + позиция скролла >= высоты всего документа - небольшой отступ
+                const isAtBottom = (window.innerHeight + window.scrollY) >= document.body.offsetHeight - 100;
+                
+                if (isAtBottom) {
+                    // Если поп-ап был закрыт И еще не показывался при прокрутке до конца
+                    if (popupWasClosed && !alreadyShownAtBottom) {
+                        showPopup();
+                    }
+                } else {
+                    // Если пользователь прокрутил вверх от нижней части, сбрасываем флаг
+                    alreadyShownAtBottom = false;
+                }
+            }
+            
+            // Слушаем событие прокрутки
+            window.addEventListener('scroll', checkScroll);
+        });
+    </script>
+</body>
+</html>
